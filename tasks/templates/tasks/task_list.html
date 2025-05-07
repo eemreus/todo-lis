@@ -1,4 +1,3 @@
-<!-- tasks/templates/tasks/task_list.html -->
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,8 +9,12 @@
     <ul>
         {% for task in tasks %}
             <li>
-                {{ task.title }} - Öncelik: {{ task.priority }}
-                {% if task.completed %}✔{% else %}❌{% endif %}
+                {{ task.title }} - Öncelik: {{ task.priority }} -
+                {% if task.completed %}
+                    ✔ Tamamlandı
+                {% else %}
+                    ❌ <a href="{% url 'complete_task' task.id %}">Tamamla</a>
+                {% endif %}
                 <a href="{% url 'delete_task' task.id %}">Sil</a>
             </li>
         {% endfor %}

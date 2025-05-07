@@ -13,6 +13,7 @@ class Task(models.Model):
         ],
         default="Orta"
     )
+    completed = models.BooleanField(default=False)  # ✅ Bu satırı ekledik
 
     def __str__(self):
         return self.title
