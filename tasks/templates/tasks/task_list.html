@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ToDo List</title>
+</head>
+<body>
+    <h1>Görevler</h1>
+
+    <ul>
+        {% for task in tasks %}
+            <li>
+                {{ task.title }} - Öncelik: {{ task.priority }} -
+                {% if task.completed %}
+                    ✔ Tamamlandı
+                {% else %}
+                    ❌ <a href="{% url 'complete_task' task.id %}">Tamamla</a>
+                {% endif %}
+                <a href="{% url 'delete_task' task.id %}">Sil</a>
+            </li>
+        {% endfor %}
+    </ul>
+
+    <a href="{% url 'add_task' %}">Yeni Görev Ekle</a>
+</body>
+</html>
