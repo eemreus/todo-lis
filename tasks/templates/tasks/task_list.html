@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ToDo List</title>
+</head>
+<body>
+    <h1>Görevler</h1>
+    <ul>
+        {% for task in tasks %}
+            <li>
+                {{ task.title }} - {% if task.completed %}✔{% else %}❌{% endif %}
+                <a href="{% url 'delete_task' task.id %}">Sil</a>
+            </li>
+        {% endfor %}
+    </ul>
+
+    <a href="{% url 'add_task' %}">Yeni Görev Ekle</a>
+</body>
+</html>
