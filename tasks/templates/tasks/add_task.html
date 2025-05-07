@@ -1,3 +1,4 @@
+<!-- tasks/templates/tasks/add_task.html -->
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,7 +8,14 @@
     <h1>Yeni Görev Ekle</h1>
     <form method="post">
         {% csrf_token %}
-        <input type="text" name="title" placeholder="Görev başlığı" required>
+        <input type="text" name="title" placeholder="Görev Başlığı" required>
+
+        <select name="priority">
+            <option value="Yüksek">Yüksek</option>
+            <option value="Orta">Orta</option>
+            <option value="Düşük">Düşük</option>
+        </select>
+
         <button type="submit">Ekle</button>
     </form>
     <a href="{% url 'task_list' %}">← Geri</a>
